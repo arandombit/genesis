@@ -3,5 +3,6 @@ struct Cell {
 }
 
 fn main() {
+  let mut grid = Vec::new();
   println!("Hello, world!");
 }
