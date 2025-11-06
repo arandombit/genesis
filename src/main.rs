@@ -9,6 +9,6 @@ struct Grid {
 }
 
 fn main() {
+  println!("Initiating genesis...");
   let mut grid = Vec::new();
-  println!("Hello, world!");
 }
