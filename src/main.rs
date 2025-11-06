@@ -10,5 +10,5 @@ struct Grid {
 
 fn main() {
   println!("Initiating genesis...");
-  let mut grid = Vec::new();
+  let mut grid = Grid { height: 1024, width: 1024, cells: Vec::new() }
 }
