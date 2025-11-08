@@ -18,5 +18,11 @@ impl Grid {
 
 fn main() {
   println!("Initiating genesis...");
-  let mut grid = Grid::new(1024, 1024);
+  let mut grid = Grid::new(5, 5);
+
+  let blinker = [(2, 1), (2, 2), (2, 3)];
+
+  for &(row, col) in &blinker {
+    grid.cells[row][col].alive = true;
+  }
 }
