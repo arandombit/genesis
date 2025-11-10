@@ -15,6 +15,20 @@ impl Grid {
     let cells = vec![vec![Cell { alive: false }; height]; width];
     Grid { height, width, cells }
   }
+  fn neighbor_positions(&self, row: usize, col: usize) -> Vec<(usize, usize)> {
+    let mut neighbors = Vec::with_capacity(8);
+    for dr in [-1isize, 0, 1] {
+      for dc in [-1isize, 0, 1] {
+        if dr == 0 && dc == 0 { continue; }
+        let nr = row as isize + dr;
+        let nc = col as isize + dc;
+        if (0..self.height as isize).contains(&nr) && (0..self.width as isize).contains(&nc) {
+            neighbors.push((nr as usize, nc as usize));
+        }
+      }
+    }
+    neighbors
+  }
 }
 
 fn main() {
