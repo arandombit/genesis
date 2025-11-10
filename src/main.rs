@@ -1,8 +1,9 @@
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 struct Cell {
   alive: bool
 }
 
+#[derive(Debug)]
 struct Grid {
   height: usize,
   width: usize,
