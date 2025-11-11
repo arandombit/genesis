@@ -29,6 +29,12 @@ impl Grid {
     }
     neighbors
   }
+  fn live_neighbor_count(&self, row: usize, col: usize) -> usize {
+    self.neighbor_positions(row, col)
+      .iter()
+      .filter(|&&(r, c)| self.cells[r][c].alive)
+      .count()
+  }
 }
 
 fn main() {
