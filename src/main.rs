@@ -47,3 +47,17 @@ fn main() {
     grid.cells[row][col].alive = true;
   }
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn blinker_center_has_two_neighbors() {
+      let mut grid = Grid::new(5, 5);
+      for &(r, c) in &[(2, 1), (2, 2), (2, 3)] {
+          grid.cells[r][c].alive = true;
+      }
+      assert_eq!(2, grid.live_neighbor_count(2, 2));
+  }
+}
