@@ -35,6 +35,16 @@ impl Grid {
       .filter(|&&(r, c)| self.cells[r][c].alive)
       .count()
   }
+  fn step(&self) -> Self {
+    let mut next_cells = vec![vec![Cell { alive: false }; self.width]; self.height];
+    for row in 0..self.height {
+      for col in 0..self.width {
+        let neighbor_count = self.live_neighbor_count(row, col);
+        next_cells[row][col].alive = next_cell_state(self.cells[row][col].alive, neighbor_count);
+      }
+    }
+    Grid { height: self.height, width: self.width, cells: next_cells }
+  }
 }
 
 fn next_cell_state(current_alive: bool, neighbor_count: usize) -> bool {
