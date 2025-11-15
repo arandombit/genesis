@@ -37,6 +37,15 @@ impl Grid {
   }
 }
 
+fn next_cell_state(current_alive: bool, neighbor_count: usize) -> bool {
+  match (current_alive, neighbor_count) {
+    (true, 2) | (true, 3) => true,  // Survival
+    (true, _) => false,             // Underpopulation or overpopulation
+    (false, 3) => true,             // Reproduction
+    (false, _) => false,            // Stays dead
+  }
+}
+
 fn main() {
   println!("Initiating genesis...");
   let mut grid = Grid::new(5, 5);
