@@ -1,9 +1,11 @@
-#[derive(Clone, Debug)]
+use serde::{Serialize, Deserialize};
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 struct Cell {
   alive: bool
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 struct Grid {
   height: usize,
   width: usize,
@@ -44,6 +46,9 @@ impl Grid {
       }
     }
     Grid { height: self.height, width: self.width, cells: next_cells }
+  }
+  fn to_json(&self) -> String {
+    serde_json::to_string_pretty(self).unwrap_or_else(|e| format!("{{\"error\": \"{}\"}}", e))
   }
 }
 
