@@ -70,6 +70,18 @@ fn main() {
   for &(row, col) in &blinker {
     grid.cells[row][col].alive = true;
   }
+
+  // Output initial state as JSON
+  println!("{}", grid.to_json());
+
+  // Simulate a few generations
+  println!("\n--- Generation 1 ---");
+  grid.step();
+  println!("{}", grid.to_json());
+
+  println!("\n--- Generation 2 ---");
+  grid.step();
+  println!("{}", grid.to_json());
 }
 
 #[cfg(test)]
