@@ -74,14 +74,11 @@ fn main() {
   // Output initial state as JSON
   println!("{}", grid.to_json());
 
-  // Simulate a few generations
-  println!("\n--- Generation 1 ---");
-  grid.step();
-  println!("{}", grid.to_json());
-
-  println!("\n--- Generation 2 ---");
-  grid.step();
-  println!("{}", grid.to_json());
+  for i in 0..10 {
+    println!("\n--- Generation {} ---", i);
+    grid = grid.step();
+    println!("{}", grid.to_json());
+  }
 }
 
 #[cfg(test)]
