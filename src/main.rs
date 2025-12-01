@@ -77,7 +77,12 @@ fn main() {
   for i in 0..10 {
     println!("\n--- Generation {} ---", i);
     grid = grid.step();
-    println!("{}", grid.to_json());
+    for row in 0..grid.height {
+      for col in 0..grid.width {
+        print!("{}", if grid.cells[row][col].alive { "■" } else { "□" });
+      }
+      println!();
+    }
   }
 }
 
