@@ -74,9 +74,13 @@ fn main() {
 
   // Output initial state as JSON
   println!("{}", grid.to_json());
+  println!("\nStarting generations...\n");
 
   for i in 0..10 {
-    println!("\n--- Generation {} ---", i);
+    // Clear screen and move cursor to top
+    print!("\x1b[2J\x1b[H");
+    io::stdout().flush().unwrap();
+    println!("--- Generation {} ---", i);
     grid = grid.step();
     for row in 0..grid.height {
       for col in 0..grid.width {
@@ -84,6 +88,9 @@ fn main() {
       }
       println!();
     }
+    io::stdout().flush().unwrap();
+    // Small delay to make the animation visible
+    std::thread::sleep(std::time::Duration::from_millis(500));
   }
 }
 
