@@ -1,4 +1,5 @@
 use serde::{Serialize, Deserialize};
+use std::io::{self, Write};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 struct Cell {
