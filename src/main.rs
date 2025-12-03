@@ -76,7 +76,7 @@ fn main() {
   println!("{}", grid.to_json());
   println!("\nStarting generations...\n");
 
-  for i in 0..10 {
+  for i in 0..50 {
     // Clear screen and move cursor to top
     print!("\x1b[2J\x1b[H");
     io::stdout().flush().unwrap();
