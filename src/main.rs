@@ -90,7 +90,7 @@ fn main() {
     }
     io::stdout().flush().unwrap();
     // Small delay to make the animation visible
-    std::thread::sleep(std::time::Duration::from_millis(500));
+    std::thread::sleep(std::time::Duration::from_millis(350));
   }
 }
 
