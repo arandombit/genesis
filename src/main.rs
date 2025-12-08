@@ -26,7 +26,7 @@ impl Grid {
         let nr = row as isize + dr;
         let nc = col as isize + dc;
         if (0..self.height as isize).contains(&nr) && (0..self.width as isize).contains(&nc) {
-            neighbors.push((nr as usize, nc as usize));
+          neighbors.push((nr as usize, nc as usize));
         }
       }
     }
@@ -100,10 +100,10 @@ mod tests {
 
   #[test]
   fn blinker_center_has_two_neighbors() {
-      let mut grid = Grid::new(5, 5);
-      for &(r, c) in &[(2, 1), (2, 2), (2, 3)] {
-          grid.cells[r][c].alive = true;
-      }
-      assert_eq!(2, grid.live_neighbor_count(2, 2));
+    let mut grid = Grid::new(5, 5);
+    for &(r, c) in &[(2, 1), (2, 2), (2, 3)] {
+      grid.cells[r][c].alive = true;
+    }
+    assert_eq!(2, grid.live_neighbor_count(2, 2));
   }
 }
